@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 
 import Post from './components/Post.jsx';
-import Feed from './components/Feed.jsx';
+import Preview from './components/Preview.jsx';
+import Login from './components/Login.jsx';
+import Signup from './components/Signup.jsx';
 
 /*
   READ THESE COMMENTS AS A PART OF STEP TWO
@@ -35,7 +37,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      view: 'feed'
+      view: 'preview',
+      data : []
     }
 
     this.changeView = this.changeView.bind(this);
@@ -50,24 +53,37 @@ class App extends React.Component {
   renderView() {
     const {view} = this.state;
 
-    if (view === 'feed') {
-      return <Feed handleClick={() => this.changeView('anypostview')}/>
+    if (view === 'preview') {
+      return <Preview data = {this.state.data} handleClick={() => this.changeView('anypostview')}/>
     } else {
       return <Post />
     }
+  }
+  componentDidMount(){
+    this.fetch()
+  }
+  fetch(){
+    $.get("/api/user/announce")
+    .then(data=>{
+      this.setState({
+  data : data
+      })
+      console.log(data)
+    })
+    .catch(err=>console.log("errrr"))
   }
   render() {
     return (
       <div>
         <div className="nav">
           <span className="logo"
-            onClick={() => this.changeView('feed')}>
+            onClick={() => this.changeView('preview')}>
             ARA.TN
           </span>
-          <span className={this.state.view === 'feed'
+          <span className={this.state.view === 'preview'
             ? 'nav-selected'
             : 'nav-unselected'}
-            onClick={() => this.changeView('feed')}>
+            onClick={() => this.changeView('preview')}>
             My Profile
           </span>
           <span className="nav-unselected">

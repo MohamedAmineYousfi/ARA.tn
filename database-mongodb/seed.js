@@ -1,6 +1,6 @@
 const db  = require('./index.js');
 const Announce = require('./Announce.js');
-
+const User = require('./Announce.js')
 const samplePosts = [
   {
     username : 'John whick',
@@ -74,5 +74,22 @@ const insertSampleBlogs = function() {
       db.close();
     });
 };
+const SampleUser = [{
+  username : 'Admin',
+  password : 'admin'
+
+},
+{
+  username : 'Amine',
+  password : 'amine'
+
+},
+{
+  username : 'Rima',
+  password : 'rima'
+
+}
+]
+
 
 insertSampleBlogs();
