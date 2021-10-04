@@ -1,17 +1,11 @@
-// REFACTOR
-
-
-
-
-
 const mongoose = require('mongoose');
 const db = require('./index.js');
 mongoose.Promise = global.Promise;
 
-const blogSchema = new mongoose.Schema({
+const announceSchema = new mongoose.Schema({
+  username : String,
   title: String,
-  author: String,
-  imageUrl: String,
+  imageUrl : String,
   body: String,
   views: {type: Number, default: 0}
 }, 
@@ -20,6 +14,6 @@ const blogSchema = new mongoose.Schema({
   }
 );
 
-const Blog = mongoose.model('Blog', blogSchema);
+const Announce = mongoose.model('Announce',announceSchema);
 
-module.exports = Blog;
+module.exports = Announce;
