@@ -5,6 +5,7 @@ mongoose.Promise = global.Promise;
 const announceSchema = new mongoose.Schema({
   username : String,
   title: String,
+  price : {type :Number , require : true},
   imageUrl : String,
   body: String,
   views: {type: Number, default: 0}
@@ -14,14 +15,6 @@ const announceSchema = new mongoose.Schema({
   }
 );
 
-const userSchema = new mongoose.Schema({
-  username : {
-    type : String ,
-    unique : true 
-  },
-  password : String 
-})
-const User = mongoose.model('User',userSchema)
 const Announce = mongoose.model('Announce',announceSchema);
-module.exports = User ;
+
 module.exports = Announce;
