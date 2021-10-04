@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongoUri = 'mongodb://localhost/blogmodo';
+const mongoUri = 'mongodb://localhost/Announcements';
 
 mongoose.connect(mongoUri,{ 
   useNewUrlParser: true ,useUnifiedTopology: true}, () => {
