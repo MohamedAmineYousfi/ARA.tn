@@ -62,19 +62,19 @@ class App extends React.Component {
         <div className="nav">
           <span className="logo"
             onClick={() => this.changeView('feed')}>
-            BLOGMODO
+            ARA.TN
           </span>
           <span className={this.state.view === 'feed'
             ? 'nav-selected'
             : 'nav-unselected'}
             onClick={() => this.changeView('feed')}>
-            See all Posts
+            My Profile
           </span>
           <span className="nav-unselected">
-            Write a Post
+            Create a Post
           </span>
           <span className="nav-unselected">
-            Admin
+            Log Out
           </span>
         </div>
 
@@ -86,4 +86,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('blogmodo'));
+ReactDOM.render(<App />, document.getElementById('Ara.tn'));
