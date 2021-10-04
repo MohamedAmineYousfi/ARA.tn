@@ -216,7 +216,7 @@ button {
 }
 
 .nav {
-  background-color: #3498DB;
+  background-color: #944504;
   margin: 0px;
   padding: 10px;
   display: flex;
@@ -317,15 +317,6 @@ button {
   transition: all 0.4s;
 }
 
-.focus-input100 {
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-}
 
 .wrap-input100 {
   width: 100%;
@@ -476,4 +467,7 @@ button {
 
 .login100-form-btn:hover {
   background-color: transparent;
+}
+.login100-form-btn:hover:before {
+  opacity: 1;
 }
