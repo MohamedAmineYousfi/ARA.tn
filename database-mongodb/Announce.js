@@ -14,14 +14,6 @@ const announceSchema = new mongoose.Schema({
   }
 );
 
-const userSchema = new mongoose.Schema({
-  username : {
-    type : String ,
-    unique : true 
-  },
-  password : String 
-})
-const User = mongoose.model('User',userSchema)
 const Announce = mongoose.model('Announce',announceSchema);
-module.exports = User ;
+
 module.exports = Announce;
