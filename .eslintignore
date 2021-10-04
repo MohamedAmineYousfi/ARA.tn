@@ -1,6 +1,5 @@
-.eslint*
-.eslintrc.js
 **/node_modules
 **/bower_components
 **/lib
-**/build
+**/vendor
+**/*.min.js
