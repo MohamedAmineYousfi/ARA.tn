@@ -4,6 +4,8 @@ import $ from 'jquery';
 
 import Post from './components/Post.jsx';
 import Feed from './components/Feed.jsx';
+import Login from './components/Login.jsx';
+import Signup from './components/Signup.jsx';
 
 /*
   READ THESE COMMENTS AS A PART OF STEP TWO
