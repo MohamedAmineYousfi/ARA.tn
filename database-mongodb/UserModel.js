@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const db = require('./index.js');
-bcrypt = require('bcrypt'),
+var bcrypt = require("bcryptjs");
 SaltD = 10;
 mongoose.Promise = global.Promise;
 
@@ -46,6 +46,6 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
 
 
 
-const User = mongoose.model('User',userSchema)
-module.exports = User ;
+ 
+module.exports = mongoose.model('User',userSchema)
 
