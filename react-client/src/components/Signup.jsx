@@ -13,27 +13,24 @@ class Signup extends React.Component {
 							</span>
 							<form className="login100-form validate-form p-b-33 p-t-5">
 
-								<div className="wrap-input100 validate-input" data-validate="Enter Email">
-									<input className="input100" type="password" name="password" placeholder="Password" />
-									<span className="focus-input100" data-placeholder="&#xe80f;"></span>
-                                    
+
 								<div className="wrap-input100 validate-input" data-validate="Enter Username">
-									<input className="input100" type="text" name="user" placeholder="User name" />
+									<input className="input100" type="text" name="user" placeholder="Username..." />
 									<span className="focus-input100" data-placeholder="&#xe82a;"></span>
 								</div>
 
 								<div className="wrap-input100 validate-input" data-validate="Enter Password">
-									<input className="input100" type="password" name="password" placeholder="Password" />
+									<input className="input100" type="password" name="password" placeholder="Password..." />
 									<span className="focus-input100" data-placeholder="&#xe80f;"></span>
 								</div>
 
+                                <div className="wrap-input100 validate-input" data-validate="Enter Phone">
+									<input className="input100" type="text" name="phoneNumber" placeholder="Phone Number..." />
+									<span className="focus-input100" data-placeholder="&#xe82a;"></span>
 								</div>
-
-
-
-
-							</form><div className="container-login100-form-btn m-t-32">
-								<button className="login100-form-btn">Connect</button></div>
+	
+							</form>
+                            
 							<div className="container-login100-form-btn m-t-32">
 								<button className="login100-form-btn" >
 									sign up

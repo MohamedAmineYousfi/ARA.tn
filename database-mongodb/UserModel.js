@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const db = require('./index.js');
+
 var bcrypt = require('bcryptjs');
+
 SaltD = 10;
 mongoose.Promise = global.Promise;
 
