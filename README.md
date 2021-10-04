@@ -9,7 +9,7 @@ __Q:__ What are your inputs?
 <br>
 __A:__ 36 hours of (relatively) undivided attention
 
-__Q:__ What is the required output?azeazkhazdbazdhkadzbk
+__Q:__ What is the required output?
 <br>
 __A:__ A compelling product presentation delivered to your classmates.
 
