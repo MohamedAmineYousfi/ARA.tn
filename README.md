@@ -1,47 +1,42 @@
+## Technical Assessment
 
-# MVP (Solo) Project
+Ready to put your skills to the test and have some full-stack hacking fun? This assessment is like a day long solo sprint where you get to build a full stack JavaScript application using the skills and technologies you've worked with during the first half of the course. Expect to reinforce concepts and techniques you are familiar with and also to learn some new content.
 
-### Overview:
+## Before Starting
 
-You have 36 hours to produce something compelling using the skills you've honed over the past five weeks.
+1. Confirm that all communication applications and tools are turned off, closed, put away
+1. Fork this repo and clone it. Do not push your work any time during this assessment.
+1. Follow [these instructions](./RECORDING.md) to start recording your screen.
 
-__Q:__ What are your inputs?
-<br>
-__A:__ 36 hours of (relatively) undivided attention
+## Guidelines
 
-__Q:__ What is the required output?
-<br>
-__A:__ A compelling product presentation delivered to your classmates.
+You must manage your time effectively to complete this assessment. This assessment will be evaluated as if it was a coding challenge given to you as part of a job application process. Not only will the functionality of your code be important, but also, the professionalism with which you write it. Consider the style and organization of your code. Make frequent commits with informative and consistent commit messages. Be professional and informative with your comments.
 
+Each directory contains a prompt with work for you to complete, with instructions defined in their own README.
 
-### Getting Started:
+## Available resources
 
-To build on your learning of core engineering concepts, we will beging thinking about how to actually manage projects. Engineering management is a deep skill and discipline with lots of history and academic writing. We will focus on just some highlights of content to give a very brief context of how we arrive here.
+The ultimate goal of this assessment is to give you an opportunity to demonstrate your abilities as an engineer. Avoid anything that will obscure our ability and your ability to see your best efforts at work will undermine that goal.
 
-* Use an [Iterative and incremental development process](http://en.wikipedia.org/wiki/Iterative_and_incremental_development) instead of a [Waterfall Process](http://en.wikipedia.org/wiki/Waterfall_model)
+* You **may not** use a scaffolding tool (e.g. Yeoman) or starter repos unless specifically allowed in a prompt's README
+* You **may not** use any resources created at Hack Reactor by yourself, other students, or staff members
+  * e.g. lectures, sprints, MVP, past assessments, side projects, notes, mentor assignments, etc.
+* You **may** only use online resources specifically allowed in a prompt's README
+* You **may not** copy and paste from available online resources
 
-<!--
-*  [Agile](http://en.wikipedia.org/wiki/Agile_software_development) - is a modern eveolution of Iterative and Incremental Development (IID) that further formalizes the IID philosophy with a set of principles and best practices. It also applies Lean Manufacturing process like [Kanban](http://en.wikipedia.org/wiki/Kanban).-->
+## Submitting Your Work
 
-<!--* [Lean Product Process](http://theleanstartup.com/principles) - Takes the essence of Agile Development methodology and applies it more broadly to the development of product and buiness models that support he requirements of the project.
--->
+Your work will be submitted with the `submit.sh` script located in the root directory of this repo. At 5:30 (or beforehand if you finish early):
 
-
-## Bare Minimum Requirements
-- [ ] Fork the [repo](https://github.com/hackreactor/2014-07-solo)
-- Complete the README.md template (<30min)
-  - [ ] Pick an idea (implement a technology, build a product, make art, etc).
-  - [ ] Write it down on paper
-  - [ ] Imagine what portion of this could be done in 24 hours.
-  - [ ] Cut the scope in half.
-  - [ ] Cut the above scope in half again.
-  - [ ] Fill in the README.md template document
-- [ ] Use iterative development (go straight to something that demo's your idea)
-- [ ] Prepare for 1 minute pitch @ demo on Saturday Morning
-
-
-## Advanced
-
-- [ ] Storage - if your app persists data, use a tool like Parse or Firebase.
-- [ ] Use Liberator, then deploy your app so the whole world can see!
-- [ ] If applicable, use an MVC Framework - Make your app production grade with a full-on MVC. 
+1. Make a final commit
+1. Stop recording your screen and save your video file locally as `firstname-lastname-yyyymmdd`
+    - NOTE: While the video is saving, proceed with the next steps.
+1. Collect a USB flash drive from your proctor, if using a pairing station, request assistance setting up the flash drive.
+1. Fill out the "How to start this app" section in the problem's `README.md` file if it's not done already
+1. Fill out the `closing_comments.txt` file.
+1. Commit the changes to `closing_comments.txt` and `README.md`.
+    - NOTE: This commit should only contain changes to these two files - no other changes are allowed
+1. Run the script `bash submit.sh` to submit your code.
+    - NOTE: You don't have to wait for your video to stop saving before running this script.
+1. Copy your local screen recording video to the USB flash drive your proctor provided.
+1. When the screen recording video has finished copying to the flash drive, return it to a proctor.
