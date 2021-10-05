@@ -84,9 +84,7 @@ axios.post('/api/user',this.state.userdata)
      console.log(err)
    })
   
-}
-
-
+  }
  
 
  renderView() {

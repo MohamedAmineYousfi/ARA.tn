@@ -1,41 +1,45 @@
 import React from 'react';
 
 class Login extends React.Component {
-	
-	render(props) {
+	constructor(props) {
+		super(props);
+		 this.state={
+		   username: '',
+		   password: ''
+		 }
+	}	 
+	render() {
 		return (
 			<div>
-				<div className="limiter">
-					<div className="container-login100">
-						<div className="wrap-login100 p-t-30 p-b-50">
-							<span className="login100-form-title p-b-41">
-								Account Login
-							</span>
-							<form className="login100-form validate-form p-b-33 p-t-5">
+				<div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked/><label for="tab-1" class="tab">Login</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"/><label for="tab-2" class="tab"></label>
+		<div class="login-form">
+			<div class="sign-in-htm">
+				<div class="group">
+					<label for="user" class="label">Username</label>
+					<input id="user" type="text" class="input"/>
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input id="pass" type="password" class="input" data-type="password"/>
+				</div>
+			
+				<div class="group">
+					<input type="submit" class="button" value="Sign In"/>
+				</div>
+								<div class="hr"></div>
+				<div class="foot-lnk">
+					<a href="#create">Create An Account</a>
+				</div>
+			
 
-								<div className="wrap-input100 validate-input" data-validate="Enter username">
-									<input className="input100" type="text" name="user" placeholder="User name" />
-									<span className="focus-input100" data-placeholder="&#xe82a;"></span>
-								</div>
-
-								<div className="wrap-input100 validate-input" data-validate="Enter password">
-									<input className="input100" type="password" name="password" placeholder="Password" />
-									<span className="focus-input100" data-placeholder="&#xe80f;"></span>
-								</div>
-
-
-
-							</form>
-							<div className="container-login100-form-btn m-t-32">
-								<button className="login100-form-btn" >
-									Login
-								</button>
-							</div>
-
-						</div>
-					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+</div>
 		)
 	}
 
