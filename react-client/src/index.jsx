@@ -6,7 +6,7 @@ import Post from './components/Post.jsx';
 import Preview from './components/Preview.jsx';
 import Login from './components/Login.jsx';
 import Signup from './components/Signup.jsx';
-import HomePage from './components/HomePage.jsx';
+
 /*
   READ THESE COMMENTS AS A PART OF STEP TWO
 
@@ -44,32 +44,19 @@ class App extends React.Component {
        ghost : false 
       },
      username : "",
-     password : "",
-     data : [] ,
-     showHideNav : false 
+     data : []
     }
-    this.handleChange=this.handleChange.bind(this)
+
     this.changeView = this.changeView.bind(this);
-    this.connect = this.connect.bind(this)
   }
-
-  handleChange(e){
-    console.log(this.state)
-    this.setState({
-      [e.target.name] : e.target.value
-    })
-  }
-
-
 
   changeView(option) {
     this.setState({
      view: option
    });
  }
- connect(){
-
-axios.post('/api/user',this.state) 
+connect(){
+axios.post('/api/user',this.state.userdata) 
    .then(data=>{
       console.log(data)
       if (data.data.username === "admin" ){
@@ -88,12 +75,9 @@ axios.post('/api/user',this.state)
          this.setState({
            userData :  {   admin : false ,
              user :true ,
-             ghost : false  
-             },
-             username : data.data,
-             showHideNav :true
+             ghost : true  },
+             username : data.data.username
          })
-         this.changeView("homePage")
         }
    })
    .catch(err=>{
@@ -106,17 +90,14 @@ axios.post('/api/user',this.state)
 renderView() {
   const {view} = this.state;
     if (view === 'preview') {
-
-      return <Preview data = {this.state.data} changeView={this.changeView} handleClick={() => this.changeView('anypostview')}/>
+      return <Preview data = {this.state.data} handleClick={() => this.changeView('anypostview')}/>
     } else if(view === 'post') {
       return <Post />
     } else if(view === 'signup'){
-      return <Signup  />
+      return <Signup />
     } else if(view === 'login'){
-      return <Login changeView={this.changeView} handleChange={this.handleChange} connect={this.connect}/>
-    } else if( view ==='homePage'){  
-      return <HomePage  username={this.state.username} data = {this.state.data} changeView={this.changeView} handleClick={() => this.changeView('anypostview')}/>
-    }
+      return <Login />
+    } 
   }
   componentDidMount(){
     this.fetch()
@@ -138,25 +119,25 @@ renderView() {
  render() {
   return (
     <div>
-      <div className="nav" >
+      <div className="nav">
         <span className="logo"
-          onClick={() => this.changeView('homePage')}>
+          onClick={() => this.changeView('preview')}>
           ARA.TN
-        </span>{ this.state.showHideNav &&
+        </span>
         <span className={this.state.view === 'preview'
           ? 'nav-selected'
           : 'nav-unselected'}
-          onClick={() => this.changeView('')}>
-        My Profile
-        </span>} { this.state.showHideNav &&
-        <span className="nav-unselected" onClick={()=>this.changeView('post')}>
+          >
+          My Profile
+        </span>
+        <span className="nav-unselected">
           Create a Post
-        </span>}{ this.state.showHideNav &&
-        <span className="nav-unselected" onClick={()=>this.changeView('preview')}>
+        </span>
+        <span className="nav-unselected">
           Log Out
-        </span>}
+        </span>
       </div>
-      
+
       <div className="main">
         {this.renderView()}
       </div>
