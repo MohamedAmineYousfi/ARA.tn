@@ -1,10 +1,131 @@
 const mongoose = require('mongoose');
 const db = require('./index.js');
-
-var bcrypt = require('bcryptjs');
-
+var bcrypt = require("bcryptjs");
 SaltD = 10;
 mongoose.Promise = global.Promise;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -48,6 +169,6 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
 
 
 
-const User = mongoose.model('User',userSchema)
-module.exports = User ;
+ 
+module.exports = mongoose.model('User',userSchema)
 
