@@ -1,45 +1,46 @@
 import React from 'react';
 
 class Signup extends React.Component {
-	
-	render(props) {
+	constructor(props) {
+		super(props);
+		 this.state={
+		   username: '',
+		   password: '',
+		   phoneNumber: ''
+		 }
+	}
+	render() {
 		return (
 			<div>
-				<div className="limiter">
-					<div className="container-login100">
-						<div className="wrap-login100 p-t-30 p-b-50">
-							<span className="login100-form-title p-b-41">
-								Create An Account
-							</span>
-							<form className="login100-form validate-form p-b-33 p-t-5">
+				<div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-2" type="radio" name="tab" class="sign-up" checked/><label for="tab-2" class="tab">Sign Up</label>
+		<div class="login-form">
 
-
-								<div className="wrap-input100 validate-input" data-validate="Enter Username">
-									<input className="input100" type="text" name="user" placeholder="Username..." />
-									<span className="focus-input100" data-placeholder="&#xe82a;"></span>
-								</div>
-
-								<div className="wrap-input100 validate-input" data-validate="Enter Password">
-									<input className="input100" type="password" name="password" placeholder="Password..." />
-									<span className="focus-input100" data-placeholder="&#xe80f;"></span>
-								</div>
-
-                                <div className="wrap-input100 validate-input" data-validate="Enter Phone">
-									<input className="input100" type="text" name="phoneNumber" placeholder="Phone Number..." />
-									<span className="focus-input100" data-placeholder="&#xe82a;"></span>
-								</div>
-	
-							</form>
-                            
-							<div className="container-login100-form-btn m-t-32">
-								<button className="login100-form-btn" >
-									sign up
-								</button>
-							</div>
-
-						</div>
-					</div>
+			<div class="sign-up-htm">
+				<div class="group">
+					<label for="user" class="label">Username</label>
+					<input id="user" type="text" class="input"/>
 				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input id="pass" type="password" class="input" data-type="password"/>
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Phone Number</label>
+					<input id="pass" type="text" class="input"/>
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Sign Up"/>
+				</div>
+				<div class="hr"></div>
+				<div class="foot-lnk">
+					<label for="tab-1">Already Member?</label>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 			</div>
 		)
 	}

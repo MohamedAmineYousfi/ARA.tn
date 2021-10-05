@@ -55,9 +55,13 @@ class App extends React.Component {
 
     if (view === 'preview') {
       return <Preview data = {this.state.data} handleClick={() => this.changeView('anypostview')}/>
-    } else {
+    } else if(view === 'post') {
       return <Post />
-    }
+    } else if(view === 'signup'){
+      return <Signup />
+    } else if(view === 'login'){
+      return <Login />
+    } 
   }
   componentDidMount(){
     this.fetch()
