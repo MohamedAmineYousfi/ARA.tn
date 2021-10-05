@@ -74,22 +74,22 @@ const insertSampleBlogs = function() {
       db.close();
     });
 };
-const SampleUser = [{
-  username : 'Admin',
-  password : 'admin'
+// const SampleUser = [{
+//   username : 'Admin',
+//   password : 'admin'
 
-},
-{
-  username : 'Amine',
-  password : 'amine'
+// },
+// {
+//   username : 'Amine',
+//   password : 'amine'
 
-},
-{
-  username : 'Rima',
-  password : 'rima'
+// },
+// {
+//   username : 'Rima',
+//   password : 'rima'
 
-}
-]
+// }
+// ]
 
 
 insertSampleBlogs();
