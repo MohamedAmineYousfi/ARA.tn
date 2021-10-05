@@ -20,7 +20,9 @@ res.send(data)
   })
   .catch(err=>console.log('eririririri'))
 })
-app.post('/api/user', function(req, res) {
+
+
+app.post('/api/user', async (req, res)=> {
 var password = req.body.password ;
 var username = req.body.username
 console.log(password,username)
@@ -29,7 +31,8 @@ var UserTest = new User({
   username: username,
   password: password
 });
-   
+  try { 
+    await 
 // save the user to database
 UserTest.save()
 .then((data)=>{
@@ -71,8 +74,11 @@ User.findOne({ username: username }, function(err, user) {
         console.log(password, isMatch); // -&gt; Password001 : false
   } 
   });
-});
-
+})
+}
+catch(err){
+  console.log(err,'post data errr')
+}
 })
 
 
