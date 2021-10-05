@@ -11,11 +11,6 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 
 app.get('/api/user/announce', function(req, res) {
   // TODO - your code here!
-  Announce.find({})
-  .then((data)=>{
-res.send(data)
-  })
-  .catch(err=>console.log('eririririri'))
 });
 
 app.get('/api/user', function(req, res) {
