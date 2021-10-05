@@ -37,8 +37,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      view: 'preview',
-      data : []
+      view: 'preview'
     }
 
     this.changeView = this.changeView.bind(this);
@@ -59,19 +58,7 @@ class App extends React.Component {
       return <Post />
     }
   }
-  componentDidMount(){
-    this.fetch()
-  }
-  fetch(){
-    $.get("/api/user/announce")
-    .then(data=>{
-      this.setState({
-  data : data
-      })
-      console.log(data)
-    })
-    .catch(err=>console.log("errrr"))
-  }
+   
   render() {
     return (
       <div>
