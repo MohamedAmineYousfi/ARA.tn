@@ -3,34 +3,31 @@ import React from 'react';
 class Login extends React.Component {
 	constructor(props) {
 		super(props);
-		 this.state={
-		   username: '',
-		   password: ''
-		 }
+		
 	}	 
 	render() {
 		return (
 			<div>
-				<div class="login-wrap">
-	<div class="login-html">
-		<input id="tab-1" type="radio" name="tab" class="sign-in" checked/><label for="tab-1" class="tab">Login</label>
-		<input id="tab-2" type="radio" name="tab" class="sign-up"/><label for="tab-2" class="tab"></label>
-		<div class="login-form">
-			<div class="sign-in-htm">
-				<div class="group">
-					<label for="user" class="label">Username</label>
-					<input id="user" type="text" class="input"/>
+				<div className="login-wrap">
+	<div className="login-html">
+		<input id="tab-1" type="radio" name="tab" className="sign-in" defaultChecked/><label htmlFor="tab-1" className="tab">Login</label>
+		<input id="tab-2" type="radio" name="tab" className="sign-up"/><label htmlFor="tab-2" className="tab"></label>
+		<div className="login-form">
+			<div className="sign-in-htm">
+				<div className="group">
+					<label htmlFor="user" className="label">Username</label>
+					<input id="user" type="text"  className ='input' name="username" onChange={this.props.handleChange}/>
 				</div>
-				<div class="group">
-					<label for="pass" class="label">Password</label>
-					<input id="pass" type="password" class="input" data-type="password"/>
+				<div className="group">
+					<label htmlFor="pass" className="label">Password</label>
+					<input id="pass" type="password" className="input" name="password" data-type="password" onChange={this.props.handleChange} />
 				</div>
 			
-				<div class="group">
-					<input type="submit" class="button" value="Sign In"/>
+				<div className="group">
+					<input type="submit" className="button" value="Sign In" onClick={()=> this.props.connect()}/>
 				</div>
-								<div class="hr"></div>
-				<div class="foot-lnk">
+								<div className="hr"></div>
+				<div className="foot-lnk" onClick={()=> this.props.changeView("signup")}>
 					<a href="#create">Create An Account</a>
 				</div>
 			
