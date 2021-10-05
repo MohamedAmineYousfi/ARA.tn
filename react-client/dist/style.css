@@ -7,6 +7,11 @@ body {
   background-color: #ECF0F1;
   font-size: 1.1em;
 }
+.wyl{
+text-align: center;
+/* color: #ffffffb9;
+font-weight: bold; */
+}
 
 h2 {
   color: #ffffff;
@@ -216,7 +221,7 @@ button {
 }
 
 .nav {
-  background-color: #00158bb8;
+  background-color: #00158bb9;
   margin: 0px;
   padding: 10px;
   display: flex;
