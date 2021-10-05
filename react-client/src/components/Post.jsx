@@ -7,7 +7,7 @@ const Post = (props) => (
     <h2>Create A Post</h2>
     <form>
       <input className="create-input" type="text"  placeholder="Post Title"></input>
-      <input className="create-input" type="text"  placeholder="Author"></input>
+      <input className="create-input" type="number"  placeholder="Price"></input>
       <input className="create-input" type="text"  placeholder="Image URL"></input>
       <textarea className="create-body-textarea"  placeholder="Post Body"></textarea>
       <button className="create-submit-button" type="submit">Save post</button>

@@ -143,17 +143,22 @@ renderView() {
           onClick={() => this.changeView('homePage')}>
           ARA.TN
         </span>{ this.state.showHideNav &&
-        <span className={this.state.view === 'preview'
+        <span className={this.state.view === ''
           ? 'nav-selected'
           : 'nav-unselected'}
           onClick={() => this.changeView('')}>
         My Profile
         </span>} { this.state.showHideNav &&
-        <span className="nav-unselected" onClick={()=>this.changeView('post')}>
+        <span className={this.state.view === 'post'
+        ? 'nav-selected'
+        : 'nav-unselected'} onClick={()=>this.changeView('post')}>
           Create a Post
         </span>}{ this.state.showHideNav &&
         <span className="nav-unselected" onClick={()=>this.changeView('preview')}>
           Log Out
+        </span>}{ !this.state.showHideNav &&
+        <span className="nav-selected" onClick={()=>this.changeView('signup')}>
+          Sign up For FREE
         </span>}
       </div>
       
