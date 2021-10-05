@@ -37,7 +37,7 @@ class App extends React.Component {
  constructor() {
    super();
    this.state = {
-     view: 'feed',
+     view: 'preview',
      userData : {
        admin : false ,
        user : true ,
@@ -127,7 +127,7 @@ renderView() {
         <span className={this.state.view === 'preview'
           ? 'nav-selected'
           : 'nav-unselected'}
-          onClick={() => this.changeView('preview')}>
+          >
           My Profile
         </span>
         <span className="nav-unselected">
