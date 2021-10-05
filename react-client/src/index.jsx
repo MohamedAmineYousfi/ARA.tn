@@ -84,6 +84,7 @@ axios.post('/api/user',this.state.userdata)
      console.log(err)
    })
   
+
 }
 
 renderView() {
@@ -108,6 +109,8 @@ renderView() {
   data : data
       })
       console.log(data)
+
+
     })
   .catch(err=>console.log("errrr"))
 }
