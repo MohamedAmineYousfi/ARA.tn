@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-
+import axios from 'axios'
 import Post from './components/Post.jsx';
 import Preview from './components/Preview.jsx';
 import Login from './components/Login.jsx';
@@ -34,11 +34,17 @@ import Signup from './components/Signup.jsx';
 */
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      view: 'preview',
-      data : []
+ constructor() {
+   super();
+   this.state = {
+     view: 'feed',
+     userData : {
+       admin : false ,
+       user : true ,
+       ghost : false 
+      },
+     username : "",
+     data : []
     }
 
     this.changeView = this.changeView.bind(this);
@@ -46,18 +52,51 @@ class App extends React.Component {
 
   changeView(option) {
     this.setState({
-      view: option
-    });
-  }
+     view: option
+   });
+ }
+connect(){
+axios.post('/api/user',this.state.userdata) 
+   .then(data=>{
+      console.log(data)
+      if (data.data.username === "admin" ){
+      this.setState({
+        userData :  {   admin : true ,
+         user : false ,
+         ghost : false  }
+      })}
+      if (data.data.username === "ghost" ){
+       this.setState({
+         userData :  {   admin : false ,
+          user : false ,
+          ghost : true  }
+       })}
+       else {
+         this.setState({
+           userData :  {   admin : false ,
+             user :true ,
+             ghost : true  },
+             username : data.data.username
+         })
+        }
+   })
+   .catch(err=>{
+     console.log(err)
+   })
+  
+}
 
-  renderView() {
-    const {view} = this.state;
 
+<<<<<<< HEAD
     if (view === 'preview') {
       return <Preview data = {this.state.data} handleClick={() => this.changeView('anypostview')}/>
-    } else {
+    } else if(view === 'post') {
       return <Post />
-    }
+    } else if(view === 'signup'){
+      return <Signup />
+    } else if(view === 'login'){
+      return <Login />
+    } 
   }
   componentDidMount(){
     this.fetch()
@@ -69,37 +108,63 @@ class App extends React.Component {
   data : data
       })
       console.log(data)
-    })
-    .catch(err=>console.log("errrr"))
-  }
-  render() {
-    return (
-      <div>
-        <div className="nav">
-          <span className="logo"
-            onClick={() => this.changeView('preview')}>
-            ARA.TN
-          </span>
-          <span className={this.state.view === 'preview'
-            ? 'nav-selected'
-            : 'nav-unselected'}
-            onClick={() => this.changeView('preview')}>
-            My Profile
-          </span>
-          <span className="nav-unselected">
-            Create a Post
-          </span>
-          <span className="nav-unselected">
-            Log Out
-          </span>
-        </div>
+=======
+ 
 
-        <div className="main">
-          {this.renderView()}
-        </div>
+ renderView() {
+   const {view} = this.state;
+   if (view === 'preview') {
+    return <Preview data = {this.state.data} handleClick={() => this.changeView('anypostview')}/>
+  } else if (view === 'post') {
+     return <Post />
+   } else if (view === 'signup'){
+     return <Signup />
+   }
+ }
+ componentDidMount(){
+  this.fetch()
+}
+fetch(){
+  $.get("/api/user/announce")
+  .then(data=>{
+    this.setState({
+data : data
+>>>>>>> 45f37975b3e6941fd8dcbb746323bc6993b0c6cf
+    })
+    console.log(data)
+  })
+  .catch(err=>console.log("errrr"))
+}
+
+
+ render() {
+  return (
+    <div>
+      <div className="nav">
+        <span className="logo"
+          onClick={() => this.changeView('preview')}>
+          ARA.TN
+        </span>
+        <span className={this.state.view === 'preview'
+          ? 'nav-selected'
+          : 'nav-unselected'}
+          onClick={() => this.changeView('preview')}>
+          My Profile
+        </span>
+        <span className="nav-unselected">
+          Create a Post
+        </span>
+        <span className="nav-unselected">
+          Log Out
+        </span>
       </div>
-    );
-  }
+
+      <div className="main">
+        {this.renderView()}
+      </div>
+    </div>
+  );
+}
 }
 
 ReactDOM.render(<App />, document.getElementById('Ara.tn'));
