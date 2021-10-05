@@ -99,6 +99,21 @@ axios.post('/api/user',this.state.userdata)
      return <Signup />
    }
  }
+ componentDidMount(){
+  this.fetch()
+}
+fetch(){
+  $.get("/api/user/announce")
+  .then(data=>{
+    this.setState({
+data : data
+    })
+    console.log(data)
+  })
+  .catch(err=>console.log("errrr"))
+}
+
+
  render() {
   return (
     <div>
