@@ -86,8 +86,8 @@ axios.post('/api/user',this.state.userdata)
   
 }
 
-
-<<<<<<< HEAD
+renderView() {
+  const {view} = this.state;
     if (view === 'preview') {
       return <Preview data = {this.state.data} handleClick={() => this.changeView('anypostview')}/>
     } else if(view === 'post') {
@@ -108,31 +108,7 @@ axios.post('/api/user',this.state.userdata)
   data : data
       })
       console.log(data)
-=======
- 
-
- renderView() {
-   const {view} = this.state;
-   if (view === 'preview') {
-    return <Preview data = {this.state.data} handleClick={() => this.changeView('anypostview')}/>
-  } else if (view === 'post') {
-     return <Post />
-   } else if (view === 'signup'){
-     return <Signup />
-   }
- }
- componentDidMount(){
-  this.fetch()
-}
-fetch(){
-  $.get("/api/user/announce")
-  .then(data=>{
-    this.setState({
-data : data
->>>>>>> 45f37975b3e6941fd8dcbb746323bc6993b0c6cf
     })
-    console.log(data)
-  })
   .catch(err=>console.log("errrr"))
 }
 
