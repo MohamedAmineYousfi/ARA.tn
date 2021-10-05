@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import axios from 'axios'
 import Post from './components/Post.jsx';
-import Feed from './components/Feed.jsx';
+import Preview from './components/Preview.jsx';
 import Login from './components/Login.jsx';
 import Signup from './components/Signup.jsx';
 
@@ -33,254 +33,100 @@ import Signup from './components/Signup.jsx';
   next steps of the assessment. When you're ready, return to the README.
 */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//class App extends React.Component {
- // constructor() {
-  //  super();
-  //  this.state = {
-    //  view: 'feed',
-     // userData : {
-       // admin : false ,
-      //  user : true ,
-       // ghost : false 
-      //},
-     // username : ""
-    //}
-
-    //this.changeView = this.changeView.bind(this);
-  //}
-
-  //changeView(option) {
-    //this.setState({
-     // view: option
-   // });
- // }
-// connect(){
-// axios.post('/api/user',this.state.userdata) 
-  //  .then(data=>{
-    //   console.log(data)
-      // if (data.data.username === "admin" ){
-//       this.setState({
-  //       userData :  {   admin : true ,
-    //      user : false ,
-      //    ghost : false  }
-//       })}
-  //     if (data.data.username === "ghost" ){
-    //    this.setState({
-      //    userData :  {   admin : false ,
-        //   user : false ,
-          // ghost : true  }
-       // })}
-//        else {
- //         this.setState({
-  //          userData :  {   admin : false ,
-   //           user :true ,
-    //          ghost : true  },
-     //         username : data.data.username
-      //    })
-        //}
-  //  })
-  //  .catch(err=>{
-  //    console.log(err)
-  //  })
+class App extends React.Component {
+ constructor() {
+   super();
+   this.state = {
+     view: 'feed',
+     userData : {
+       admin : false ,
+       user : true ,
+       ghost : false 
+      },
+     username : "",
+     data : []
+    }
+
+    this.changeView = this.changeView.bind(this);
+  }
+
+  changeView(option) {
+    this.setState({
+     view: option
+   });
+ }
+connect(){
+axios.post('/api/user',this.state.userdata) 
+   .then(data=>{
+      console.log(data)
+      if (data.data.username === "admin" ){
+      this.setState({
+        userData :  {   admin : true ,
+         user : false ,
+         ghost : false  }
+      })}
+      if (data.data.username === "ghost" ){
+       this.setState({
+         userData :  {   admin : false ,
+          user : false ,
+          ghost : true  }
+       })}
+       else {
+         this.setState({
+           userData :  {   admin : false ,
+             user :true ,
+             ghost : true  },
+             username : data.data.username
+         })
+        }
+   })
+   .catch(err=>{
+     console.log(err)
+   })
   
-// }
+}
+
 
  
 
-//  renderView() {
- //   const {view} = this.state;
+ renderView() {
+   const {view} = this.state;
+   if (view === 'preview') {
+    return <Preview data = {this.state.data} handleClick={() => this.changeView('anypostview')}/>
+  } else if (view === 'post') {
+     return <Post />
+   } else if (view === 'signup'){
+     return <Signup />
+   }
+ }
+ render() {
+  return (
+    <div>
+      <div className="nav">
+        <span className="logo"
+          onClick={() => this.changeView('preview')}>
+          ARA.TN
+        </span>
+        <span className={this.state.view === 'preview'
+          ? 'nav-selected'
+          : 'nav-unselected'}
+          onClick={() => this.changeView('preview')}>
+          My Profile
+        </span>
+        <span className="nav-unselected">
+          Create a Post
+        </span>
+        <span className="nav-unselected">
+          Log Out
+        </span>
+      </div>
 
-   // if (view === 'feed') {
-    //  return <Feed handleClick={() => this.changeView('anypostview')}/>
-   // } else if (view === 'post') {
-     // return <Post />
-  //  } else if (view === 'signup'){
-    //  return <Signup />
-  //  }
- // }
- // render() {
-  //  return (
-   //   <div>
-   //     <div className="nav">
-   //       <span className="logo"
-   //         onClick={() => this.changeView('feed')}>
-   //         ARA.TN
-     //     </span>
-     //     <span className={this.state.view === 'feed'
-     //       ? 'nav-selected'
-     //       : 'nav-unselected'}
-     //       onClick={() => this.changeView('feed')}>
-     //       My Profile
-     //     </span>
-     //     <span className="nav-unselected">
-     //       Create a Post
-     //     </span>
-     //     <span className="nav-unselected">
-     //       Log Out
-     //     </span>
-     //   </div>
+      <div className="main">
+        {this.renderView()}
+      </div>
+    </div>
+  );
+}
+}
 
-      //  <div className="main">
-      //    {this.renderView()}
-      //  </div>
-     // </div>
-   // );
-//  }
-//}
-
-//ReactDOM.render(<App />, document.getElementById('Ara.tn'));
+ReactDOM.render(<App />, document.getElementById('Ara.tn'));
