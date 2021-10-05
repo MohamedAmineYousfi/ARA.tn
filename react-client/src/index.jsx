@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-
+import axios from 'axios'
 import Post from './components/Post.jsx';
 import Feed from './components/Feed.jsx';
+import Login from './components/Login.jsx';
+import Signup from './components/Signup.jsx';
 
 /*
   READ THESE COMMENTS AS A PART OF STEP TWO
@@ -35,7 +37,13 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      view: 'feed'
+      view: 'feed',
+      userData : {
+        admin : false ,
+        user : true ,
+        ghost : false 
+      },
+      username : ""
     }
 
     this.changeView = this.changeView.bind(this);
@@ -46,14 +54,48 @@ class App extends React.Component {
       view: option
     });
   }
+ connect(){
+ axios.post('/api/user',this.state.userdata) 
+    .then(data=>{
+       console.log(data)
+       if (data.data.username === "admin" ){
+       this.setState({
+         userData :  {   admin : true ,
+          user : false ,
+          ghost : false  }
+       })}
+       if (data.data.username === "ghost" ){
+        this.setState({
+          userData :  {   admin : false ,
+           user : false ,
+           ghost : true  }
+        })}
+        else {
+          this.setState({
+            userData :  {   admin : false ,
+              user :true ,
+              ghost : true  },
+              username : data.data.username
+          })
+        }
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+  
+ }
+
+ 
 
   renderView() {
     const {view} = this.state;
 
     if (view === 'feed') {
       return <Feed handleClick={() => this.changeView('anypostview')}/>
-    } else {
+    } else if (view === 'post') {
       return <Post />
+    } else if (view === 'signup'){
+      return <Signup />
     }
   }
   render() {

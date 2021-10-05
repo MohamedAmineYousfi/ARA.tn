@@ -5,42 +5,31 @@ const samplePosts = [
   {
     username : 'John whick',
     title: 'BMW',
-    imageUrl: 'https://source.unsplash.com/1600x900/?cat',
+    price : 245000,
+    imageUrl: 'https://www.largus.fr/images/images/bmw-x6-2020-26.jpg',
     createdAt: '2019-11-14T05:57:26.037Z',
-    body: `It was discovered yesterday that a stray cat found on the streets of Oakland, California by local animal shelter officials possesses the ability to talk. According to a volunteer at the animal shelter who asked to remain anonymous the cat, lovingly dubbed Chatty Catherine or Chatty Cat for short by shelter staff, remained silent at first when it was brought to the shelter. It was during a routine feeding when an overzealous volunteer engaged in baby talk prompting Chatty Cat to look up from it’s bowl of kibble and respond, “Don’t be patronizing.”
+    body: `The BMW X6 is a mid-size luxury crossover SUV by German automaker BMW. The BMW X6 is the originator of the sports activity coupé (SAC), referencing its sloping rear roof design. It combines the attributes of an SUV (high ground clearance, all-wheel drive and all-weather ability, large wheels and tires) with the stance of a coupé (styling featuring a sloping roof). It is built in BMW's North American plant in Greer, South Carolina alongside the BMW X5, whose platform it shares. Prior to the release of the X7, the X6 was considered a flagship SUV for BMW.
 
-The volunteer, believing she was hallucinating from overwork, promptly took the day off and returned home. It wasn’t until multiple other volunteers experienced the same phenomenon that the shelter realized the miraculous display and became uproarious. Local scientists and veterinarians were promptly called to the scene to examine Chatty Cat to try and discern the exact cause of its ability to speak.
-
-After thorough examinations and tests, which came up inconclusive, local news reporters were allowed to interview Chatty Cat to discern its origins and its unusual ability to talk which prompted the cat to issue the following statement:
-
-“Okay first of all my name is not Catherine, I don’t know where they got that from because my name is Margaret. They just decided that on their own. Second I am not originally from earth. I am from a planet inhabited by cats who possess the ability of speech. I landed on your planet days ago on a goodwill mission only to be captured and renamed. My story begins 9 years ago when I was born, a young simple minded little lass. I grew up poor and with a limited future. It wasn’t until I entered grade school where I met my best friend Elizabeth that I decided to dream bigger, reach for the stars. Who knew I’d end up actually reaching it? Heh...what? Nobody. Come on, that was funny.”
-
-After hours of mundane back story it became apparent that Chatty’s Cat’s story is far from over and unlikely to stop anytime soon. We will update the article with new information as the yarn unravels.
+    The first generation (E71) was released for sale in April 2008 for the 2008 model year, while the second-generation X6 (F16) was launched at the Paris Motor Show in 2014. The third-generation X6 was revealed in July 2019.    
 `,
-    views: 214
+    views: 0
   },
   {
-    title: 'Corgi With Cork Shaped Birthmark Declared Adorable',
-    author: 'Sandeep Gonnabathula',
+    username: 'Leonardo Decaprio',
+    title: 'Lamborghini Urus',
+    price: 1070000 ,
     imageUrl: 'https://source.unsplash.com/1600x900/?corgi',
-    createdAt: '2020-11-13T03:30:26.037Z',
-    body:`A San Francisco couple who adopted a Corgi found a pleasant surprise when they went to pick up their new family member from a breeder in Antioch last week. Michael and Sarah Smith drove up to the breeder’s house where they were greeted by Joanne Doberman at the door with their bundle of joy in her arms. Upon first glance Michael and Sarah noticed nothing out of the norm and quickly took their new corgi to their San Francisco loft.
-
-During the next three days the couple spent every waking hour meticulously videotaping their corgi doing mundane everyday dog things like eating food, sleeping, and playing with the abundance of toys they had prepared. It was during one of these video tapings that Sarah discovered a tiny spot on the back of the corgi’s head in a shape of a cork. After confirming with her boyfriend Michael, the couple began to focus their documentation on the birthmark and decided to name the dog Cork the corgi.
-
-The couple uploaded videos of Cork the corgi online and in the span of a few days the videos of Cork have gone viral garnering millions of views on various platforms. Comments on various forums and comment sections show that millions of viewers agree that Cork is a heckin good pupper and a good boy. It’s not just online viewers that are fans of the newly celebritized dog; Local wineries have offered the couple sponsorship deals and already the couple is planning a line of Cork the corgi merchandise.
-
-“We’re just blown away by the response,” said Sarah during our interview with the couple. “We thought we’d get a couple of views and maybe a few comments here and there but the fact that so many people are showing their love and support is amazing. It was destiny that brought Cork to us and I couldn’t be happier.”
-
-The mayor of San Francisco released an official statement this morning declaring Cork to be “officially adorable and a heckin good boy” and has declared this coming Friday to be Cork the corgi day.
+    createdAt : '2020-11-13T03:30:26.037Z',
+    body:`The Lamborghini Urus[5] concept was unveiled at the 2012 Beijing Auto Show on 23 April 2012.[6] Later, the SUV was also shown at Pebble Beach in 2012. Powered by a 5.2 L V10 engine shared with the Gallardo, the engine generated a theoretical maximum power output of 600 PS (592 hp; 441 kW) and was accompanied with an all-wheel-drive system. The Urus was reported to have the lowest carbon emissions as compared to its stablemates (i.e. the Porsche Cayenne, Bentley Bentayga and the Audi Q7).[citation needed] The Urus was conceived as a perfect daily driver unlike the other offerings from the brand. The sharp-lined exterior design of the SUV takes heavy influence from the company's V12 flagship, the Aventador. The production version of the SUV was introduced in 2017 with major changes done to the exterior and featuring a different powertrain than that of the concept.[7]
 `,
     views: 501
   },
   {
-    title: 'Corgi Gifted At Sploots To Teach Yoga',
-    author: 'Sandeep Gonnabathula',
+    username: 'Corgi Gifted At Sploots To Teach Yoga',
+    title: 'Sandeep Gonnabathula',
+    price: 500000,
     imageUrl: 'https://source.unsplash.com/1600x900/?corgi',
-    createdAt: '2020-11-11T01:24:26.037Z',
+    createdAt :'2020-11-11T01:24:26.037Z',
     body: `A hot new trend has emerged in Berkeley, California; Local yoga instructor and wellness guru Yasmine Matterson, an avid yoga enthusiast and dog lover, has come up with the idea of a yoga class led by her two year old corgi named Stretch. The hour long session consists of following the movements of Stretch as he assumes various positions and poses, most notably, the sploot.
 
 “It just came to me one day as I was doing my daily morning yoga routine in my living room,” said Yasmine in her North Berkeley home. “I looked over and saw Stretch stretched out in a sploot and I thought, hey, that looks promising. So I joined him and tried incorporating the sploot to my yoga routine and the rest is history.”
@@ -49,42 +38,32 @@ Already the class has been booked solid for the foreseeable future with intrigue
 
 When asked on his thoughts about his popular niche offering Stretch simply replied, “Bark bark, bark bark bark, *pant*...bark.”
 `,
-    views: 318
+    views: 0
   },
   {
-    title: 'Hipster Owners Create Cat DJ Sensation',
-    author: 'Tae Sung Kim',
-    imageUrl: 'https://source.unsplash.com/1600x900/?turntable',
-    createdAt: '2021-04-17T05:05:26.037Z',
-    body: `A New York couple has made waves in the east coast music scene. Trent Joule and Macca Klein, residents in the neighborhood of hell's kitchen in Manhattan, are the proud owners of their cat Darby who now goes by the moniker DJ Lil Paws. The couple who collect vinyl records discovered Darby’s talent for DJing one afternoon in their tiny Manhattan apartment when Darby jumped up on the record player and proceeded to scratch the vinyl record with her claws.
-
-“We had just gotten a brand new record player from this small shop in Brooklyn. You’ve probably never heard of them,” said Trent as he stroked his mustache. “We put on a record and were making a vegan gluten free dinner when we heard a scratching sound and ran into the living to find Darby scratching the vinyl. We would have stopped her but she was actually making some real genuine soul searching music. So instead we made some flyers for a show and she’s been touring ever since.”
-
-DJ Lil Paws is now a mainstay of the New York party scene, playing at large venues as well as various clubs and even private parties. When asked, various people who attended DJ Lil Paws’s shows described her music as, “Confusingly weird”, “Totally unreal”, and “Like nails on a chalkboard but in the best way possible”.
-
-DJ Lil Paws released her first album earlier this month which was well received by critics and fans alike and she is already a favorite to win the award for Best Animal DJ of the year as she is the first and only nominee in existence. Her hit single, “Hiss Hiss Meow” is also up for best DJ single of the year. When asked about her thoughts on her success and her nominations, DJ Lil Paws simply purred contently.
+    username: 'Snoop Dog',
+    title: 'Ferrari 812 Superfast',
+    price: 944870 ,
+    imageUrl: 'https://www.larevueautomobile.com/images/fiche-technique/2021/Ferrari/812-Superfast/V12-GTS/Ferrari_812-Superfast_V12_GTS_MD_1.jpg' ,
+    createdAt :'2021-04-17T05:05:26.037Z',
+    body: `The Ferrari 812 Superfast (Type F152M) is a front mid-engine, rear-wheel-drive grand tourer produced by Italian sports car manufacturer Ferrari that made its debut at the 2017 Geneva Motor Show. The 812 Superfast is the successor to the F12berlinetta.
 `,
-    views: 479
+    views: 0
   },
   {
-    title: 'Owner Accuses Cat Of Having A Bad “Catitude”',
-    author: 'Tae Sung Kim',
-    imageUrl: 'https://source.unsplash.com/1600x900/?cat',
-    createdAt: '2018-11-10T05:05:26.037Z',
-    body: `A New York couple has made waves in the east coast music scene. Trent Joule and Macca Klein, residents in the neighborhood of hell's kitchen in Manhattan, are the proud owners of their cat Darby who now goes by the moniker DJ Lil Paws. The couple who collect vinyl records discovered Darby’s talent for DJing one afternoon in their tiny Manhattan apartment when Darby jumped up on the record player and proceeded to scratch the vinyl record with her claws.
-
-“We had just gotten a brand new record player from this small shop in Brooklyn. You’ve probably never heard of them,” said Trent as he stroked his mustache. “We put on a record and were making a vegan gluten free dinner when we heard a scratching sound and ran into the living to find Darby scratching the vinyl. We would have stopped her but she was actually making some real genuine soul searching music. So instead we made some flyers for a show and she’s been touring ever since.”
-
-DJ Lil Paws is now a mainstay of the New York party scene, playing at large venues as well as various clubs and even private parties. When asked, various people who attended DJ Lil Paws’s shows described her music as, “Confusingly weird”, “Totally unreal”, and “Like nails on a chalkboard but in the best way possible”.
-
-DJ Lil Paws released her first album earlier this month which was well received by critics and fans alike and she is already a favorite to win the award for Best Animal DJ of the year as she is the first and only nominee in existence. Her hit single, “Hiss Hiss Meow” is also up for best DJ single of the year. When asked about her thoughts on her success and her nominations, DJ Lil Paws simply purred contently.
+    username: 'Ali Samaoui',
+    title: 'Citroen',
+    price: 20000 ,
+    imageUrl: 'https://www.auto-plus.tn/assets/modules/newcars/citroen/c3/couverture/citroen-c3.jpg',
+    createdAt : '2018-11-10T05:05:26.037Z',
+    body: `Car of a doctor , never been used , first hand , clean tear , new carbirater , new souiglace , emporte from italy
 `,
-    views: 479
+    views: 1000
   }
 ];
 
 const insertSampleBlogs = function() {
-  Blog.create(samplePosts)
+  Announce.create(samplePosts)
     .then(() => {
       console.log("Database seeded successfully");
     })
@@ -95,22 +74,22 @@ const insertSampleBlogs = function() {
       db.close();
     });
 };
-const SampleUser = [{
-  username : 'Admin',
-  password : 'admin'
+// const SampleUser = [{
+//   username : 'Admin',
+//   password : 'admin'
 
-},
-{
-  username : 'Amine',
-  password : 'amine'
+// },
+// {
+//   username : 'Amine',
+//   password : 'amine'
 
-},
-{
-  username : 'Rima',
-  password : 'rima'
+// },
+// {
+//   username : 'Rima',
+//   password : 'rima'
 
-}
-]
+// }
+// ]
 
 
 insertSampleBlogs();
