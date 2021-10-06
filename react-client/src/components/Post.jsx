@@ -11,6 +11,7 @@ class Post extends Component {
       body : ""
     }
     this.handleChange = this.handleChange.bind(this)
+    this.post = this.post.bind(this)
   }
 
   handleChange(e) {
@@ -35,11 +36,11 @@ class Post extends Component {
   <div className="create-editor">
     <h2>Create A Post</h2>
     <form>
-      <input className="create-input" type="text" onChange = {this.handleChange} name = "title" placeholder="Post Title"></input>
+      <input  className="create-input" type="text" onChange = {this.handleChange} name = "title" placeholder="Post Title"></input>
       <input className="create-input" type="number" onChange = {this.handleChange} name = "price"  placeholder="Price"></input>
       <input className="create-input" type="text" onChange = {this.handleChange} name = "imageUrl" placeholder="Image URL"></input>
       <textarea className="create-body-textarea" onChange = {this.handleChange} name = "body" placeholder="Post Body"></textarea>
-      <button className="create-submit-button" onClick = {this.post()} type="submit">Save post</button>
+      <button className="create-submit-button" onClick = {()=>this.post()} type="submit">Save post</button>
     </form>
   </div>
   <div className="create-preview">
