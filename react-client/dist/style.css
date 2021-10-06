@@ -9,12 +9,10 @@ body {
 }
 .wyl{
 text-align: center;
-/* color: #ffffffb9;
-font-weight: bold; */
 }
 
 h2 {
-  color: #ffffff;
+  color: #00158bb8;
 }
 
 .feed-list-item {
@@ -60,10 +58,13 @@ h2 {
 button {
   cursor: pointer;
   border: none;
-  border-radius: 3px;
+  border-radius: 25px;
+  font-size: 5px;
   font-family: 'PT Serif', sans-serif;
   color: #ECF0F1;
-  background-color: #E74C3C;
+  background-color: #00158bb8;
+  width: 100%;
+
 }
 
 .post {
@@ -72,7 +73,6 @@ button {
   max-width: 800px;
   font-size: 1.3em;
   line-height: 1.5em;
-  background-color: white;
   padding: 5px 20px 5px 20px;
 }
 
@@ -114,23 +114,27 @@ button {
 
 
 .create-input {
-  width: 80%;
+  width: 100%;
   display: block;
   font-size: .9em;
   height: 30px;
   margin-bottom: 15px;
   border: none;
   padding: 5px;
+  border-radius: 15px;
+  box-shadow:2px 2px 10px 1px grey;  
 }
 
 .create-body-textarea {
-  width: 80%;
+  width: 100%;
   font-size: .9em;
   display: block;
   height: 400px;
   border: none;
   padding: 5px;
   resize: none;
+  border-radius: 20px;
+  box-shadow:2px 2px 10px 1px grey;  
 }
 
 .create-submit-button {
@@ -170,7 +174,7 @@ button {
 
 .post-list-entry {
   list-style: none;
-  border: 1px solid #3498DB;
+  border: 1px solid #00158bb8;
   margin-bottom: 20px;
   padding: 10px;
   width: 75%;
@@ -221,7 +225,7 @@ button {
 }
 
 .nav {
-  background-color: #00158bb9;
+  background-color: #00158bb8;
   margin: 0px;
   padding: 10px;
   display: flex;
