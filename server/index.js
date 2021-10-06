@@ -12,6 +12,14 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 // app.get('/api/user/announce', function(req, res) {
 //   // TODO - your code here!
 // });
+app.post("/api/user/announce",(req,res)=>{
+  var build = new Announce(req.body)
+  build.save()
+  .then((data)=>{
+    res.send(data)
+  })
+  .catch(err=>console.log('post announce server error'))
+})
 
 app.get("/api/user/announce",(req,res)=>{
   Announce.find({})
