@@ -74,11 +74,13 @@ class App extends React.Component {
     var filterbytype = this.state.data.filter((e)=>{
       return e.type === option
     })
+
     this.setState({
       view: option,
       lift: filter[0],
       allfiltreddata : filterbytype
     })
+    this.fetch()
   }
   connect() {
 
@@ -171,7 +173,9 @@ render() {
     <div>
       <div className="nav" >
         <span className="logo"
-          onClick={() => this.changeView('homePage')}>
+          onClick={() => this.changeView('homePage') 
+          }
+          >
           ARA.TN
         </span>
         <select id="id_name" name="name">
