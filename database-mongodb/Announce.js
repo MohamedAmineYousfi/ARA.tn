@@ -4,7 +4,9 @@ mongoose.Promise = global.Promise;
 
 const announceSchema = new mongoose.Schema({
   username : String,
-  title: String,
+  title: {type :String , require : true},
+  adress : {type :String , require : true},
+  phoneNumber : {type :Number , require : true},
   price : {type :Number , require : true},
   imageUrl : String,
   body: String,
