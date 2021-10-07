@@ -15,6 +15,7 @@ class Post extends Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.post = this.post.bind(this)
+    this.handlethisChange = this.handlethisChange.bind(this)
   }
 
   handleChange(e) {
@@ -31,11 +32,14 @@ class Post extends Component {
     .catch(err=>console.log("client post error"))
   }
   handlethisChange(e) {
-    this.setState({ rentorsale : e.target.value });
+    console.log("Done!!");
+    this.setState({rentorsale : e.target.value });
+    console.log(this.state.rentorsale)
   }
 
 
   render(){
+    
     return (
 <div className="post">
     <div className="create">
@@ -46,8 +50,9 @@ class Post extends Component {
       <input  className="create-input" type="text" onChange = {this.handleChange} name = "adress" placeholder="Adress"></input>
       <input  className="create-input" type="text" onChange = {this.handleChange} name = "phoneNumber" placeholder="Phone Number"></input>
       <select value={this.state.rentorsale} onChange={this.handlethisChange}>
-            {[<option label = "Rent" value="rent"></option>,<option label = "Sale" value = "sale"></option>].map((option,key) => (
-              <option key = {key} value={option.value}>{option.label}</option>
+        <option value=""></option>
+            {[{label : "Rent",value : "rent"},{label : "Sale",value:"sale"}].map((option,k) => (
+              <option key = {k} value={option.value}>{option.label}</option>
             ))}
           </select>
       <input className="create-input" type="number" onChange = {this.handleChange} name = "price"  placeholder="Price"></input>
@@ -57,6 +62,7 @@ class Post extends Component {
     </form>
   </div>
 </div>
+<button onClick = {()=>console.log(this.state.rentorsale)} > console</button>
   </div>
     )
   }
