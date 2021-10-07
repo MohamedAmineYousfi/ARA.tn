@@ -73,7 +73,6 @@ class App extends React.Component {
       view: option,
       lift: filter[0]
     })
-    console.log(this.state.lift)
   }
   connect() {
 
