@@ -29,7 +29,14 @@ res.send(data)
   .catch(err=>console.log('eririririri'))
 })
 
-
+app.patch("/api/user/announce/:id",(req,res)=>{
+  console.log(req.params)
+  Announce.findOneAndUpdate({_id : req.params.id},{$inc : {views : 1}},{new : true})
+  .then ((data)=>{
+    res.send(data)
+  })
+  .catch(err=>{console.log("patch server error")})
+})
 app.post('/api/user', async (req, res)=> {
 var password = req.body.password ;
 var username = req.body.username
