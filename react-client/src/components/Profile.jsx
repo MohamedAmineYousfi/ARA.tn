@@ -14,7 +14,7 @@ componentDidMount(){
 getdata() { 
   
         var filter = this.props.data.filter((e)=>{
-         return  e.username === 'John whick' //change this to this.props.user after fixing the loggin 
+         return  e.username === this.props.user //change this to this.props.user after fixing the loggin 
        })
        this.setState({
            filtredData : filter
@@ -34,12 +34,14 @@ render(){
               {
                 
               this.state.filtredData.map((e,k)=>(
-<li onClick = {() => {this.props.change(e.imageUrl)}} key = {k} className="feed-list-item" >
+<li  key = {k} className="feed-list-item" >
+    <button>Edit Post</button>
         <div className="feed-list-item-byline"><span className="feed-list-item-byline-author">Owner: {e.username}</span> {moment(e.createdAt,"YYYY-MM-DD").fromNow()} - Added </div>
         
-        <img  src = {e.imageUrl} className="feed-list-item-image"/>     
+        <img onClick = {() => {this.props.change(e.imageUrl)}}  src = {e.imageUrl} className="feed-list-item-image"/>     
         <div className="feed-list-item-byline"><span className="feed-list-item-byline-author">{e.price} TND</span></div>  
-         <div className="feed-list-item-byline"><span className="feed-list-item-byline-author">Click to see more details</span></div>  
+        <div id = "showdetails" className="feed-list-item-byline"><span className="feed-list-item-byline-author">views : {e.views}</span></div>  
+         <div id = "showdetails" onClick = {() => {this.props.change(e.imageUrl)}} className="feed-list-item-byline"><span className="feed-list-item-byline-author">Click to see more details</span></div>  
       </li>
               ))}
 
