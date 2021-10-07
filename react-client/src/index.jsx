@@ -120,7 +120,7 @@ class App extends React.Component {
     } else if (view === 'post') {
       return <Post user = {this.state.username} alldata = {this.state.data} />
     } else if (view === 'signup') {
-      return <Signup />
+      return <Signup changeView={this.changeView} handleChange={this.handleChange} />
     }
     else if (view === "profile") {
       return <Profile change={this.changeView} data={this.state.data} user={this.state.username} />
