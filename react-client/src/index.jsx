@@ -9,6 +9,7 @@ import Signup from './components/Signup.jsx';
 import HomePage from './components/HomePage.jsx';
 import Profile from './components/Profile.jsx';
 import Postviewonclick from './components/Postviewonclick.jsx';
+import Filteroption from "./components/Filteroption.jsx"
 /*
   READ THESE COMMENTS AS A PART OF STEP TWO
 
@@ -49,7 +50,8 @@ class App extends React.Component {
       password: "",
       data: [],
       showHideNav: false,
-      lift: {}
+      lift: {},
+      allfiltreddata: []
     }
     this.handleChange = this.handleChange.bind(this)
     this.changeView = this.changeView.bind(this);
@@ -69,9 +71,13 @@ class App extends React.Component {
     var filter = this.state.data.filter((e) => {
       return e.imageUrl === option
     })
+    var filterbytype = this.state.data.filter((e)=>{
+      return e.type === option
+    })
     this.setState({
       view: option,
-      lift: filter[0]
+      lift: filter[0],
+      allfiltreddata : filterbytype
     })
   }
   connect() {
@@ -127,6 +133,10 @@ class App extends React.Component {
     } else if (view === 'signup') {
       return <Signup />
     }
+    else if (view === "filterop"){
+      return <Filteroption data = {this.state.allfiltreddata}/>
+    }
+  
     else if (view === "profile") {
       return <Profile change={this.changeView} data={this.state.data} user={this.state.username} />
     }
@@ -172,7 +182,7 @@ render() {
     <option value="6">Cars For Sale </option>
     <option value="7"> Phones </option>
 </select> 
-<button>filter</button>
+<button onClick = {()=>this.changeView("filterop")}>filter</button>
         
         {this.state.showHideNav &&
           <span className={this.state.view === ''
