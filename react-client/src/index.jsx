@@ -164,7 +164,18 @@ render() {
         <span className="logo"
           onClick={() => this.changeView('homePage')}>
           ARA.TN
-        </span>{this.state.showHideNav &&
+        </span>
+        <select id="id_name" name="name">
+       <option value=""></option>
+    <option value="3">Houses For Rent</option>
+    <option value="4">Houses For Sale   </option>
+    <option value="5"> Cars For Rent  </option>
+    <option value="6">Cars For Sale </option>
+    <option value="7"> Phones </option>
+</select> 
+<button>filter</button>
+        
+        {this.state.showHideNav &&
           <span className={this.state.view === ''
             ? 'nav-selected'
             : 'nav-unselected'}
