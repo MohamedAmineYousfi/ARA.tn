@@ -8,6 +8,7 @@ class Post extends Component {
       title : "",
       adress : "",
       phoneNumber : "",
+      rentorsale:"",
       price : "",
       imageUrl : "",
       body : ""
@@ -29,6 +30,9 @@ class Post extends Component {
     })
     .catch(err=>console.log("client post error"))
   }
+  handlethisChange(e) {
+    this.setState({ rentorsale : e.target.value });
+  }
 
 
   render(){
@@ -41,15 +45,16 @@ class Post extends Component {
       <input  className="create-input" type="text" onChange = {this.handleChange} name = "title" placeholder="Post Title"></input>
       <input  className="create-input" type="text" onChange = {this.handleChange} name = "adress" placeholder="Adress"></input>
       <input  className="create-input" type="text" onChange = {this.handleChange} name = "phoneNumber" placeholder="Phone Number"></input>
+      <select value={this.state.rentorsale} onChange={this.handlethisChange}>
+            {[<option label = "Rent" value="rent"></option>,<option label = "Sale" value = "sale"></option>].map((option,key) => (
+              <option key = {key} value={option.value}>{option.label}</option>
+            ))}
+          </select>
       <input className="create-input" type="number" onChange = {this.handleChange} name = "price"  placeholder="Price"></input>
       <input className="create-input" type="text" onChange = {this.handleChange} name = "imageUrl" placeholder="Image URL"></input>
       <textarea className="create-body-textarea" onChange = {this.handleChange} name = "body" placeholder="Post Body"></textarea>
       <button className="create-submit-button" onClick = {()=>this.post()} type="submit">Save post</button>
     </form>
-  </div>
-  <div className="create-preview">
-    <h2>PREVIEW</h2>
- 
   </div>
 </div>
   </div>
