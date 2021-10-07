@@ -28,8 +28,8 @@ render(){
 
         <div className="feed-list-item">
         <br />
-       <div className="wyl feed-list-item-title"> Welcome to your profile {this.props.user} </div><br /> <br />
-       <div className="wyl feed-list-item-title"> your posts :  {this.props.username} </div>
+       <div className="wyl feed-list-item-title"> Welcome to your profile, {this.props.user} </div><br /> <br />
+       <div className="wyl feed-list-item-title"> Your posts :  {this.props.username} </div>
       <ul> 
               {
                 
