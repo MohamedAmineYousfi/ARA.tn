@@ -18,7 +18,7 @@ const samplePosts = [
     username: 'Leonardo Decaprio',
     title: 'Lamborghini Urus',
     price: 1070000 ,
-    imageUrl: 'https://source.unsplash.com/1600x900/?corgi',
+    imageUrl: 'http://images.summitmedia-digital.com/topgear/images/2018/10/08/urus-main-1538979080.jpg',
     createdAt : '2020-11-13T03:30:26.037Z',
     body:`The Lamborghini Urus[5] concept was unveiled at the 2012 Beijing Auto Show on 23 April 2012.[6] Later, the SUV was also shown at Pebble Beach in 2012. Powered by a 5.2 L V10 engine shared with the Gallardo, the engine generated a theoretical maximum power output of 600 PS (592 hp; 441 kW) and was accompanied with an all-wheel-drive system. The Urus was reported to have the lowest carbon emissions as compared to its stablemates (i.e. the Porsche Cayenne, Bentley Bentayga and the Audi Q7).[citation needed] The Urus was conceived as a perfect daily driver unlike the other offerings from the brand. The sharp-lined exterior design of the SUV takes heavy influence from the company's V12 flagship, the Aventador. The production version of the SUV was introduced in 2017 with major changes done to the exterior and featuring a different powertrain than that of the concept.[7]
 `,
@@ -57,6 +57,16 @@ When asked on his thoughts about his popular niche offering Stretch simply repli
     imageUrl: 'https://www.auto-plus.tn/assets/modules/newcars/citroen/c3/couverture/citroen-c3.jpg',
     createdAt : '2018-11-10T05:05:26.037Z',
     body: `Car of a doctor , never been used , first hand , clean tear , new carbirater , new souiglace , emporte from italy
+`,
+    views: 1000
+  },
+  {
+    username: 'Ahmed Mannai',
+    title: 'iphone 12 Pro importé from France',
+    price: 6000 ,
+    imageUrl: 'https://selectshop.tn/img/cms/12%20pro%20max.jpg',
+    createdAt : '2021-10-07T05:05:26.037Z',
+    body: `phone 12 Pro Max est le modèle grand-format haut de gamme de la 14e génération de smartphone d'Apple annoncé le 13 octobre 2020. Il est équipé d'un écran de 6,7 pouces OLED HDR 60 Hz, d'un triple capteur photo avec ultra grand-angle et téléobjectif (x5 optique) et d'un SoC Apple A14 Bionic compatible 5G (sub-6 GHz).
 `,
     views: 1000
   }
