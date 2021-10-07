@@ -37,7 +37,7 @@ class App extends React.Component {
  constructor() {
    super();
    this.state = {
-     view: 'feed',
+     view: 'preview',
      userData : {
        admin : false ,
        user : true ,
@@ -121,19 +121,17 @@ renderView() {
     <div>
       <div className="nav">
         <span className="logo"
-          onClick={() => this.changeView('preview')}>
+          >
           ARA.TN
         </span>
-        <span className={this.state.view === 'preview'
-          ? 'nav-selected'
-          : 'nav-unselected'}
-          onClick={() => this.changeView('preview')}>
+        <span className= "nav-unselected"
+         >
           My Profile
         </span>
         <span className="nav-unselected">
           Create a Post
         </span>
-        <span className="nav-unselected">
+        <span className="nav-unselected" onClick={() => this.changeView('preview')}>
           Log Out
         </span>
       </div>
