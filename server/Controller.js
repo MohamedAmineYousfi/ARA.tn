@@ -102,14 +102,20 @@ exports.findOne = function(req, res){
   console.log(req.body)
   User.findOne({username:username},(err,user)=>{
     if(user){
-        res.send({message:"user already exist"})
+        res.send({message:"Username already in use"})
+    }
+    else if (username === "" || password === "" || phoneNumber ==="") {
+       res.json({
+         status: "FAILED",
+         message: "Empty input fields!"
+       })
     }else {
         const user = new User({username, password, phoneNumber})
         user.save(err=>{
             if(err){
                 res.send(err)
             }else{
-                res.send({message:"sucessfull"})
+                res.send({message:"User Registered"})
             }
         })
     }

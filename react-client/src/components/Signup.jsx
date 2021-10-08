@@ -22,6 +22,11 @@ class Signup extends React.Component {
       .post("http://localhost:3000/signup", this.state)
       .then((response) => {
         console.log(response);
+        if(response.data.message === "User Registered") {
+          alert(response.data.message)
+        } else {
+          alert(response.data.message)
+        }
       })
       .catch((err) => {
         console.log(err);
