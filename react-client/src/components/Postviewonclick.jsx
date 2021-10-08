@@ -13,7 +13,6 @@ componentDidMount(){
 }
 
 patch(){
-        console.log(this.props.lift._id)
         const server = `http://localhost:3000/api/user/announce/${this.props.lift._id}`
         $.ajax({
                 method : "PATCH",
