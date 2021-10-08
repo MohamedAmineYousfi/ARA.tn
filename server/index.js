@@ -1,7 +1,7 @@
 const express = require('express');
 
 const Announce = require('../database-mongodb/Announce.js');
-
+const User = require('../database-mongodb/UserModel.js');
 const app = express();
 const PORT = 3000;
 var announceRouter = require('./Router')
@@ -74,6 +74,26 @@ app.use('/api/user',announceRouter)
 // }
 // })
 
+app.post('/signup', function(req, res){
+console.log('signup', req.body)
+const {username, password, phoneNumber} =req.body;
+User.findOne({username:username},(err,user)=>{
+  if(user){
+      res.send({message:"user already exist"})
+  }else {
+      const user = new User({username, password, phoneNumber})
+      user.save(err=>{
+          if(err){
+              res.send(err)
+          }else{
+              res.send({message:"sucessfull"})
+          }
+      })
+  }
+})
+})
+
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
+
 });
