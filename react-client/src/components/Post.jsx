@@ -42,7 +42,16 @@ saveandgo(){
   this.props.change("homePage")
   alert("Article Created Succesfully")
 }
-
+// sendPic(){
+//   $.post('/api/user/image',{})
+//   .then (data =>{
+//     console.log("send pic",data)
+//     this.setState({
+    
+//     })
+//   })
+//   .catch(err=>{console.log(err)})
+// }
   render(){
     
     return (
@@ -63,9 +72,13 @@ saveandgo(){
       <input className="create-input" type="number" onChange = {this.handleChange} name = "price"  placeholder="Price"></input>
       <input className="create-input" type="text" onChange = {this.handleChange} name = "imageUrl" placeholder="Image URL"></input>
         </form>
-      <form className="">
-  <label htmlFor="myfile" >Select a file: </label>
-  <input type="file"  id="myfile" name="myfile"/>
+      <form method="POST" action="/api/user/image" exctype="multipart/form-data">
+        <div>
+  <label htmlFor="file" >Select a file: </label>
+  <input type="file"  id="myfile" name="image" onClick={this.sendPic}/></div>
+  <div>
+    <input type='submit' name="btn_upload_image" value='Upload'/>
+  </div>
          </form>
       <textarea className="create-body-textarea" onChange = {this.handleChange} name = "body" placeholder="Post Body"></textarea>
       <button className="create-submit-button" onClick = {()=>{this.saveandgo()}} type="submit">Save post</button>

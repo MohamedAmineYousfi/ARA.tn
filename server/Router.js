@@ -15,4 +15,8 @@ announceRouter.route('/announce/:id')
 announceRouter.route('/')
 .post(Controller.check)
 
+announceRouter.route('/')
+.post(Controller.uploadPic)
+
+
 module.exports = announceRouter ;
