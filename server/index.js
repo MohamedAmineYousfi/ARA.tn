@@ -26,7 +26,7 @@ const path = require('path')
 app.post('/api/user/image',upload.single('image'),async (req,res)=>{
   try{
     const result = await cloudinary.uploader.upload(req.file.path);
-console.log(req.file.path)
+// console.log(req.file.path)
 //create instance of image 
  let img = new ImageS ({
    name : req.body.name,
@@ -37,7 +37,10 @@ console.log(req.file.path)
 //save user 
 await img.save();
 // res.json(img);
-res.json(result.secure_url)
+// res.setHeader()
+// res.writeHead(200)   
+// res.end( result.secure_url)
+res.send({imageUrl : result.secure_url})
     } 
   catch(err){
 console.log(err)
