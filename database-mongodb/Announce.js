@@ -10,7 +10,10 @@ const announceSchema = new mongoose.Schema({
   price : {type :Number , require : true},
   imageUrl : String,
   body: String,
-  views: {type: Number, default: 0}
+  views: {type: Number, default: 0},
+  cloudinary_id:{
+    type:String
+  }
 }, 
   {
     timestamps: true
