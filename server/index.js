@@ -12,6 +12,14 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 // app.get('/api/user/announce', function(req, res) {
 //   // TODO - your code here!
 // });
+app.post("/api/user/announce",(req,res)=>{
+  var build = new Announce(req.body)
+  build.save()
+  .then((data)=>{
+    res.send(data)
+  })
+  .catch(err=>console.log('post announce server error'))
+})
 
 app.get("/api/user/announce",(req,res)=>{
   Announce.find({})
@@ -20,7 +28,16 @@ res.send(data)
   })
   .catch(err=>console.log('eririririri'))
 })
-app.post('/api/user', function(req, res) {
+
+app.patch("/api/user/announce/:id",(req,res)=>{
+  console.log(req.params)
+  Announce.findOneAndUpdate({_id : req.params.id},{$inc : {views : 1}},{new : true})
+  .then ((data)=>{
+    res.send(data)
+  })
+  .catch(err=>{console.log("patch server error")})
+})
+app.post('/api/user', async (req, res)=> {
 var password = req.body.password ;
 var username = req.body.username
 console.log(password,username)
@@ -29,7 +46,8 @@ var UserTest = new User({
   username: username,
   password: password
 });
-   
+  try { 
+    await 
 // save the user to database
 UserTest.save()
 .then((data)=>{
@@ -71,8 +89,11 @@ User.findOne({ username: username }, function(err, user) {
         console.log(password, isMatch); // -&gt; Password001 : false
   } 
   });
-});
-
+})
+}
+catch(err){
+  console.log(err,'post data errr')
+}
 })
 
 

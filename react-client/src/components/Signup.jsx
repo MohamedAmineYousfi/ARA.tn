@@ -1,49 +1,94 @@
-import React from 'react';
-
+import React from "react";
+import axios from "axios";
 class Signup extends React.Component {
-	constructor(props) {
-		super(props);
-		 this.state={
-		   username: '',
-		   password: '',
-		   phoneNumber: ''
-		 }
-	}
-	render() {
-		return (
-			<div>
-				<div class="login-wrap">
-	<div class="login-html">
-		<input id="tab-2" type="radio" name="tab" class="sign-up" checked/><label for="tab-2" class="tab">Sign Up</label>
-		<div class="login-form">
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      password: "",
+      phoneNumber: "",
+    };
+	this.signup = this.signup.bind(this);
+  }
 
-			<div class="sign-up-htm">
-				<div class="group">
-					<label for="user" class="label">Username</label>
-					<input id="user" type="text" class="input"/>
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Password</label>
-					<input id="pass" type="password" class="input" data-type="password"/>
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Phone Number</label>
-					<input id="pass" type="text" class="input"/>
-				</div>
-				<div class="group">
-					<input type="submit" class="button" value="Sign Up"/>
-				</div>
-				<div class="hr"></div>
-				<div class="foot-lnk">
-					<label for="tab-1">Already Member?</label>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-			</div>
-		)
-	}
+  signup() {
+    axios
+      .post("http://localhost:3000/signup", this.state)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
+  render() {
+    return (
+      <div>
+        <div className="login-wrap">
+          <div className="login-html">
+            <input
+              id="tab-2"
+              type="radio"
+              name="tab"
+              className="sign-up"
+              defaultChecked
+            />
+            <label htmlFor="tab-2" className="tab">
+              Sign Up
+            </label>
+            <div className="login-form">
+              <div className="sign-up-htm">
+                <div className="group">
+                  <label htmlFor="user" className="label">
+                    Username
+                  </label>
+                  <input
+                    id="user"
+                    type="text"
+                    className="input"
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <div className="group">
+                  <label htmlFor="pass" className="label">
+                    Password
+                  </label>
+                  <input
+                    id="pass"
+                    type="password"
+                    className="input"
+                    data-type="password"
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <div className="group">
+                  <label htmlFor="pass" className="label">
+                    Phone Number
+                  </label>
+                  <input
+                    id="phone"
+                    type="text"
+                    className="input"
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <div className="group">
+                  <input type="submit" className="button" value="Sign Up" onClick={this.signup} />
+                </div>
+                <div className="hr"></div>
+                <div
+                  className="foot-lnk"
+                  onClick={() => this.props.changeView("login")}
+                >
+                  <a href="#login">Already Member?</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 export default Signup;
