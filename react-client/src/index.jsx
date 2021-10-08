@@ -126,7 +126,7 @@ class App extends React.Component {
 
       return <Preview data={this.state.data} changeView={this.changeView} handleClick={() => this.changeView('anypostview')} />
     } else if (view === 'post') {
-      return <Post user = {this.state.username} alldata = {this.state.data} />
+      return <Post change = {this.changeView} user = {this.state.username} alldata = {this.state.data} />
     } else if (view === 'signup') {
       return <Signup changeView={this.changeView} handleChange={this.handleChange} />
     }
