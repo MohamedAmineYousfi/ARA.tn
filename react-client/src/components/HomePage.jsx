@@ -10,7 +10,7 @@ const HomePage = (props) => (
      {/* <img className="img" src={logo2}/> */}
      <ul>
       {props.data.map((e,k)=>(
-      <li onClick = {()=>{props.change(e.imageUrl)}} key = {k} className="feed-list-item" >
+      <li onClick = {()=>{props.change(e._id)}} key = {k} className="feed-list-item" >
       <div className="feed-list-item-title" >{e.title} - {e.price} DT</div>
       <div className="feed-list-item-byline"><span className="feed-list-item-byline-author">Owner: {e.username}</span>  - Added {moment(e.createdAt,"YYYY-MM-DD").fromNow()}</div>
       <img src={e.imageUrl} className="feed-list-item-image"/>     
