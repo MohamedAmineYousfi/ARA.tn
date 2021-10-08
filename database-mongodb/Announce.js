@@ -4,11 +4,16 @@ mongoose.Promise = global.Promise;
 
 const announceSchema = new mongoose.Schema({
   username : String,
-  title: String,
+  title: {type :String , require : true},
+  adress : {type :String , require : true},
+  phoneNumber : {type :Number , require : true},
   price : {type :Number , require : true},
   imageUrl : String,
   body: String,
-  views: {type: Number, default: 0}
+  views: {type: Number, default: 0},
+  cloudinary_id:{
+    type:String
+  }
 }, 
   {
     timestamps: true
