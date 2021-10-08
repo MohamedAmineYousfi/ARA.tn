@@ -16,13 +16,20 @@ exports.retrieve = function (req,res){
     })
     .catch(err=>console.log('error in retrieve data '))
 };
+exports.changeYourPost = function (req,res){
+Announce.updateOne({_id:req.params.id},req.body,{new : true})
+.then((data)=>{
+  res.send(data)
+})
+.catch(err=>console.log(err))
+}
 exports.deleteOne = function(req,res){
 
 };
 // exports.updateOne = function(req,res){
 
 // };
-exports.updateOne = function(req,res){
+exports.updateViews = function(req,res){
 console.log(req.params)
 Announce.findOneAndUpdate({_id : req.params.id},{$inc : {views : 1}},{new : true})
 .then ((data)=>{

@@ -4,7 +4,9 @@ import $ from "jquery"
 class Postviewonclick extends Component { 
         constructor(props){
                 super(props)
+        this.patch = this.patch.bind(this)
         }
+        
 
 componentDidMount(){
         this.patch()
@@ -13,11 +15,13 @@ componentDidMount(){
 patch(){
         const server = `http://localhost:3000/api/user/announce/${this.props.lift._id}`
         $.ajax({
-                type : "PATCH",
-                url : server
+                method : "PATCH",
+                url : server,
+
         }).then(data=>{
-            
+          this.props.lift.views++  
         })
+        .catch(err=>console.log("error patch"))
 }
         render(){
                 return(
