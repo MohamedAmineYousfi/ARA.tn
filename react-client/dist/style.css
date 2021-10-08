@@ -67,7 +67,7 @@ button {
 }
 
 .post {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   max-width: 800px;
   font-size: 1.3em;
@@ -97,20 +97,20 @@ button {
 
 .create h2 {
   border-bottom: 1px solid #777777;
-  width: 90%;
+  width:100%;
   font-family: 'Francois One';
 }
 
 .create-editor {
-  width: 40%;
+  width: 100%;
   float: left;
 }
 
-.create-preview {
+/* .create-preview {
   width: 60%;
   float: right;
   margin: 0 auto;
-}
+} */
 
 
 .create-input {
