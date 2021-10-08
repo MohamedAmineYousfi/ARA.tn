@@ -13,6 +13,7 @@ class Post extends Component {
       imageUrl : "",
       body : ""
     }
+    this.saveandgo = this.saveandgo.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.post = this.post.bind(this)
     this.handlethisChange = this.handlethisChange.bind(this)
@@ -36,7 +37,11 @@ class Post extends Component {
     this.setState({rentorsale : e.target.value });
     console.log(this.state.rentorsale)
   }
-
+saveandgo(){
+  this.post()
+  this.props.change("homePage")
+  alert("Article Created Succesfully")
+}
 
   render(){
     
@@ -63,7 +68,7 @@ class Post extends Component {
   <input type="file"  id="myfile" name="myfile"/>
          </form>
       <textarea className="create-body-textarea" onChange = {this.handleChange} name = "body" placeholder="Post Body"></textarea>
-      <button className="create-submit-button" onClick = {()=>this.post()} type="submit">Save post</button>
+      <button className="create-submit-button" onClick = {()=>{this.saveandgo()}} type="submit">Save post</button>
   
   </div>
 </div>
