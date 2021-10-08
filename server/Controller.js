@@ -89,3 +89,22 @@ exports.check = async (req, res) => {
           console.log(err,'post data errr')
         }
 }
+
+exports.findOne = function(req, res){
+  const {username, password, phoneNumber} =req.body;
+  console.log(req.body)
+  User.findOne({username:username},(err,user)=>{
+    if(user){
+        res.send({message:"user already exist"})
+    }else {
+        const user = new User({username, password, phoneNumber})
+        user.save(err=>{
+            if(err){
+                res.send(err)
+            }else{
+                res.send({message:"sucessfull"})
+            }
+        })
+    }
+  })
+}
