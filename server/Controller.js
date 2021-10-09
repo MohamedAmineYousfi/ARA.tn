@@ -128,7 +128,4 @@ exports.findOne = function(req, res){
         })
     }
   })
-exports.uploadPic = upload.single('image'),async(req,res)=>{
-
-
 }
