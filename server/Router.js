@@ -17,5 +17,8 @@ announceRouter.route('/')
 
 announceRouter.route('/signup/')
 .post(Controller.findOne)
+announceRouter.route('/')
+.post(Controller.uploadPic)
+
 
 module.exports = announceRouter ;

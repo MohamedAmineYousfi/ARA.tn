@@ -1,7 +1,13 @@
 var Announce = require ('../database-mongodb/Announce')
 const User = require('../database-mongodb/UserModel')
+// var Image = require ('../database-mongodb/Announce')
+const upload = require('../database-mongodb/utils/multer')
+// const cloudinary = require ('../database-mongodb/utils/cloudinary')
+// const path = require('path')
+
 
 exports.createOne = function (req,res){
+  console.log(req.body)
     var build = new Announce(req.body)
     build.save()
     .then((data)=>{
@@ -122,4 +128,7 @@ exports.findOne = function(req, res){
         })
     }
   })
+exports.uploadPic = upload.single('image'),async(req,res)=>{
+
+
 }

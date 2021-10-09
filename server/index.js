@@ -1,5 +1,6 @@
 const express = require('express');
-
+const dotenv = require('dotenv')
+dotenv.config();
 const Announce = require('../database-mongodb/Announce.js');
 const User = require('../database-mongodb/UserModel.js');
 const app = express();
@@ -12,67 +13,42 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/../react-client/dist'));
 
 
-
-
 app.use('/api/user',announceRouter)
-// app.post('/api/user', async (req, res)=> {
-// var password = req.body.password ;
-// var username = req.body.username
-// console.log(password,username)
-// // create a user a new user
-// var UserTest = new User({
-//   username: username,
-//   password: password
-// });
-//   try { 
-//     await 
-// // save the user to database
-// UserTest.save()
-// .then((data)=>{
-//   console.log(data)
-// }).catch(err=>{
-//   console.log(" already Exist the user")
 
-// })
-  
-// // fetch the user and test password verification
-// User.findOne({ username: username }, function(err, user) {
-  
-//   if (err){console.log("error first")};
-   
-//   // test a matching password
-//   user.comparePassword(password, function(err, isMatch) {
-//     console.log(user)
-//       if (err) {
-//       res.setStatus(400).send(err)}
-//     console.log(password, isMatch); // -&gt; Password123: true
-      
-//     if(username === 'admin' ){  
-//       res.end('admin')}
-//     else if (username === 'ghost'){  
-//       res.end('ghost')}
-//     else {
-//       res.setHeader(username,username)
-//       res.writeHead(200)
-//       res.end(username)
-//     }
-      
-//   });
-//    var passwords = req.body.password + "001"
-//   // test a failing password
-//   user.comparePassword(passwords, function(err, isMatch) {
-//       if (err) throw err;
-//        else { 
-         
-//         console.log(password, isMatch); // -&gt; Password001 : false
-//   } 
-//   });
-// })
-// }
-// catch(err){
-//   console.log(err,'post data errr')
-// }
-// })
+
+//Cloudinary part 
+const ImageS = require ('../database-mongodb/Image.js')
+const upload = require('../database-mongodb/utils/multer')
+const cloudinary = require ('../database-mongodb/utils/cloudinary')
+const path = require('path')
+
+
+app.post('/api/user/image',upload.single('image'),async (req,res)=>{
+  try{
+    const result = await cloudinary.uploader.upload(req.file.path);
+// console.log(req.file.path)
+//create instance of image 
+ let img = new ImageS ({
+   name : req.body.name,
+   avatar : result.secure_url,
+   cloudinary_id : result.public_id,
+ })
+
+//save user 
+await img.save();
+// res.json(img);
+// res.setHeader()
+// res.writeHead(200)   
+// res.end( result.secure_url)
+res.send({imageUrl : result.secure_url})
+    } 
+  catch(err){
+console.log(err)
+    }
+})
+
+
+
 
 app.post('/signup', announceRouter)
 
