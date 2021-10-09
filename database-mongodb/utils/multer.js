@@ -10,7 +10,7 @@ fileFilter : (req,file,cb)=>{
         cb(new Error("File type is not supported"),false);
         return ;
     }
-    cv(null,true)
+        cb(null,true)
 },
     
 });
