@@ -2,7 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv')
 dotenv.config();
 const Announce = require('../database-mongodb/Announce.js');
-
+const User = require('../database-mongodb/UserModel.js');
 const app = express();
 const PORT = 3000;
 var announceRouter = require('./Router')
@@ -50,6 +50,9 @@ console.log(err)
 
 
 
+app.post('/signup', announceRouter)
+
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
+
 });

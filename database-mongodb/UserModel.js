@@ -11,7 +11,9 @@ const userSchema = new mongoose.Schema({
     index : {unique : true} 
   },
   password : {type :String,
-    required : true } 
+    required : true 
+  },
+  phoneNumber : {type :String}
 })
 
 userSchema.pre('save', function(next) {

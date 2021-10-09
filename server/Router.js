@@ -15,6 +15,8 @@ announceRouter.route('/announce/:id')
 announceRouter.route('/')
 .post(Controller.check)
 
+announceRouter.route('/signup/')
+.post(Controller.findOne)
 announceRouter.route('/')
 .post(Controller.uploadPic)
 
