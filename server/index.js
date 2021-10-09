@@ -1,103 +1,58 @@
 const express = require('express');
-
+const dotenv = require('dotenv')
+dotenv.config();
 const Announce = require('../database-mongodb/Announce.js');
-const User = require('../database-mongodb/UserModel')
+const User = require('../database-mongodb/UserModel.js');
 const app = express();
 const PORT = 3000;
+var announceRouter = require('./Router')
+
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/../react-client/dist'));
 
-// app.get('/api/user/announce', function(req, res) {
-//   // TODO - your code here!
-// });
-app.post("/api/user/announce",(req,res)=>{
-  var build = new Announce(req.body)
-  build.save()
-  .then((data)=>{
-    res.send(data)
-  })
-  .catch(err=>console.log('post announce server error'))
-})
 
-app.get("/api/user/announce",(req,res)=>{
-  Announce.find({})
-  .then((data)=>{
-res.send(data)
-  })
-  .catch(err=>console.log('eririririri'))
-})
+app.use('/api/user',announceRouter)
 
-app.patch("/api/user/announce/:id",(req,res)=>{
-  console.log(req.params)
-  Announce.findOneAndUpdate({_id : req.params.id},{$inc : {views : 1}},{new : true})
-  .then ((data)=>{
-    res.send(data)
-  })
-  .catch(err=>{console.log("patch server error")})
-})
-app.post('/api/user', async (req, res)=> {
-var password = req.body.password ;
-var username = req.body.username
-console.log(password,username)
-// create a user a new user
-var UserTest = new User({
-  username: username,
-  password: password
-});
-  try { 
-    await 
-// save the user to database
-UserTest.save()
-.then((data)=>{
-  console.log(data)
-}).catch(err=>{
-  console.log(" already Exist the user")
 
-})
-  
-// fetch the user and test password verification
-User.findOne({ username: username }, function(err, user) {
-  
-  if (err){console.log("error first")};
-   
-  // test a matching password
-  user.comparePassword(password, function(err, isMatch) {
-    console.log(user)
-      if (err) {
-      res.setStatus(400).send(err)}
-    console.log(password, isMatch); // -&gt; Password123: true
-      
-    if(username === 'admin' ){  
-      res.end('admin')}
-    else if (username === 'ghost'){  
-      res.end('ghost')}
-    else {
-      res.setHeader(username,username)
-      res.writeHead(200)
-      res.end(username)
+//Cloudinary part 
+const ImageS = require ('../database-mongodb/Image.js')
+const upload = require('../database-mongodb/utils/multer')
+const cloudinary = require ('../database-mongodb/utils/cloudinary')
+const path = require('path')
+
+
+app.post('/api/user/image',upload.single('image'),async (req,res)=>{
+  try{
+    const result = await cloudinary.uploader.upload(req.file.path);
+// console.log(req.file.path)
+//create instance of image 
+ let img = new ImageS ({
+   name : req.body.name,
+   avatar : result.secure_url,
+   cloudinary_id : result.public_id,
+ })
+
+//save user 
+await img.save();
+// res.json(img);
+// res.setHeader()
+// res.writeHead(200)   
+// res.end( result.secure_url)
+res.send({imageUrl : result.secure_url})
+    } 
+  catch(err){
+console.log(err)
     }
-      
-  });
-   var passwords = req.body.password + "001"
-  // test a failing password
-  user.comparePassword(passwords, function(err, isMatch) {
-      if (err) throw err;
-       else { 
-         
-        console.log(password, isMatch); // -&gt; Password001 : false
-  } 
-  });
-})
-}
-catch(err){
-  console.log(err,'post data errr')
-}
 })
 
 
+
+
+app.post('/signup', announceRouter)
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
+
 });

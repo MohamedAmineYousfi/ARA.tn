@@ -16,11 +16,11 @@ class Login extends React.Component {
 			<div className="sign-in-htm">
 				<div className="group">
 					<label htmlFor="user" className="label">Username</label>
-					<input id="user" type="text"  className ='input' name="username" onChange={this.props.handleChange}/>
+					<input id="user" type="text" placeholder="Username..." className ='input' name="username" onChange={this.props.handleChange}/>
 				</div>
 				<div className="group">
 					<label htmlFor="pass" className="label">Password</label>
-					<input id="pass" type="password" className="input" name="password" data-type="password" onChange={this.props.handleChange} />
+					<input id="pass" type="password" placeholder="Password..." className="input" name="password" data-type="password" onChange={this.props.handleChange} />
 				</div>
 			
 				<div className="group">

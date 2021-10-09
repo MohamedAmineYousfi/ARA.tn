@@ -18,5 +18,4 @@ const announceSchema = new mongoose.Schema({
 );
 
 const Announce = mongoose.model('Announce',announceSchema);
-
 module.exports = Announce;

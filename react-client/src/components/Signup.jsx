@@ -8,7 +8,13 @@ class Signup extends React.Component {
       password: "",
       phoneNumber: "",
     };
-	this.signup = this.signup.bind(this);
+    this.signup = this.signup.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+    console.log(this.state)
   }
 
   signup() {
@@ -16,6 +22,11 @@ class Signup extends React.Component {
       .post("http://localhost:3000/signup", this.state)
       .then((response) => {
         console.log(response);
+        if(response.data.message === "User Registered") {
+          alert(response.data.message)
+        } else {
+          alert(response.data.message)
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -46,7 +57,9 @@ class Signup extends React.Component {
                   <input
                     id="user"
                     type="text"
+                    placeholder="Username..."
                     className="input"
+                    name="username"
                     onChange={this.handleChange}
                   />
                 </div>
@@ -57,8 +70,10 @@ class Signup extends React.Component {
                   <input
                     id="pass"
                     type="password"
+                    placeholder="Password..."
                     className="input"
                     data-type="password"
+                    name="password"
                     onChange={this.handleChange}
                   />
                 </div>
@@ -69,12 +84,19 @@ class Signup extends React.Component {
                   <input
                     id="phone"
                     type="text"
+                    placeholder="Phone Number..."
                     className="input"
+                    name="phoneNumber"
                     onChange={this.handleChange}
                   />
                 </div>
                 <div className="group">
-                  <input type="submit" className="button" value="Sign Up" onClick={this.signup} />
+                  <input
+                    type="submit"
+                    className="button"
+                    value="Sign Up"
+                    onClick={this.signup}
+                  />
                 </div>
                 <div className="hr"></div>
                 <div
