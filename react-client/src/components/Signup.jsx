@@ -23,6 +23,7 @@ class Signup extends React.Component {
       .then((response) => {
         console.log(response);
         if(response.data.message === "User Registered") {
+          this.props.changeView("login")
           alert(response.data.message)
         } else {
           alert(response.data.message)
