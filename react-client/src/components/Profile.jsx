@@ -5,13 +5,19 @@ class Profile extends Component {
 constructor(props){
     super(props)
     this.state = {
-        filtredData : [],
+        filtredData : []
     }
+    this.delete = this.delete.bind(this)
 }
 componentDidMount(){
     this.getdata()
 }
 
+delete(id){
+    axios.delete(`http://localhost:3000/api/user/announce/${id}`)
+    .then((data)=>{console.log("Deleted") ; this.getdata()})
+    .catch(err=>console.log("error in delete"))
+}
 getdata() { 
   
         var filter = this.props.data.filter((e)=>{
@@ -37,6 +43,7 @@ render(){
               this.state.filtredData.map((e,k)=>(
 <li  key = {k} className="feed-list-item" >
     <button onClick = {()=>this.props.change("edit",e._id)} id = "editpostprofile" on>Edit Post</button>
+    <button onClick = {()=>this.delete(e._id)} id = "editpostprofile" on>Delete Post</button>
         <div className="feed-list-item-byline"><span className="feed-list-item-byline-author">Owner: {e.username}</span> {moment(e.createdAt,"YYYY-MM-DD").fromNow()} - Added </div>
         
         <img onClick = {() => {this.props.change(e._id)}}  src = {e.imageUrl} className="feed-list-item-image"/>     
