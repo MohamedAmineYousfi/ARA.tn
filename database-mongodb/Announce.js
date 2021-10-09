@@ -10,10 +10,7 @@ const announceSchema = new mongoose.Schema({
   price : {type :Number , require : true},
   imageUrl : String,
   body: String,
-  views: {type: Number, default: 0},
-  cloudinary_id:{
-    type:String
-  }
+  views: {type: Number, default: 0}
 }, 
   {
     timestamps: true
@@ -21,5 +18,4 @@ const announceSchema = new mongoose.Schema({
 );
 
 const Announce = mongoose.model('Announce',announceSchema);
-
 module.exports = Announce;
