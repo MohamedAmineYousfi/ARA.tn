@@ -1,6 +1,6 @@
 const express = require('express');
-const dotenv = require('dotenv')
-dotenv.config();
+// const dotenv = require('dotenv')
+// dotenv.config();
 const Announce = require('../database-mongodb/Announce.js');
 const User = require('../database-mongodb/UserModel.js');
 const app = express();
